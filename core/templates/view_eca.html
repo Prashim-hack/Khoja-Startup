@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ model.name }} - Eca Finder</title>
+    {% include 'elements/links.html' %}
+    {% load static %}
+</head>
+
+<body>
+    {% include 'elements/navigation.html' %}
+    <style>
+        .title_top {
+            display: flex;
+            flex-direction: column;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+
+        .bg-color {
+            background-color: rgb(255, 255, 255);
+        }
+
+        .addition-css {
+            display: flex;
+            gap: 24px;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+
+        .box_cont-1 {
+            padding-top: 32px;
+            padding-bottom: 32px;
+        }
+
+        .box_cont {
+            width: 5rem;
+            border-radius: 16px;
+            overflow: hi
+        }
+
+        .box_cont-2 {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+        }
+
+        .title-box {
+            position: absolute;
+            inset: 0px;
+        }
+
+        .title_text {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .title_text_2 {
+            display: flex;
+            gap: 8px;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+
+        .title_text_3 {
+            box-sizing: border-box;
+            margin: 0px;
+            font-family: "Poppins", sans-serif;
+            font-size: 36px;
+            color: rgb(39, 51, 57);
+            font-weight: 900;
+            line-height: 40px;
+            letter-spacing: -0.005em;
+        }
+
+        #image-css {
+            box-sizing: border-box;
+            display: block;
+            overflow: hidden;
+            width: initial;
+            height: initial;
+            background: none;
+            opacity: 1;
+            border: 0;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0
+        }
+
+        #image-css img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            box-sizing: border-box;
+            padding: 0;
+            border: none;
+            margin: auto;
+            display: block;
+            width: 0;
+            height: 0;
+            min-width: 100%;
+            max-width: 100%;
+            min-height: 100%;
+            max-height: 100%;
+            object-fit: cover
+        }
+    </style>
+    <div class="container" >
+        <div class="card">
+        <div direction="column" class="  bg-color title_top" style="border-radius: 12px !important;">
+            <div class="  box_cont-1 addition-css">
+                <div width="5rem" overflow="hidden" class="  box_cont ">
+                    <div width="100%" class=" box_cont-2">
+                        <div class=" title-box"><span id="image-css"><img alt="{{ model.name }}" sizes="100vw"
+                                    src="{% static 'image/avatar.png' %}"></span>
+                        </div>
+                    </div>
+                </div>
+                <div direction="column" class="   title_text">
+                    <div class="   title_text_2">
+                        <h1 class=" title_text_3" style="text-transform: uppercase; ">{{ model.name }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <br>
+    
+    <div class="container">
+        <div class="card col-md-12 col-sm-12" style="margin-bottom: 40px;">
+            <div class="card-body" style="display: flex;">
+                <div class="half-card-body" style="width: 60%;">
+                    <br>
+                    <div class="cont" style="display: flex;">
+                        <a href="#" style="text-decoration: none;">
+                            <h5 class="card-title">{{ model.name }}</h5>
+                        </a>
+                        <a href="../../edit_eca/{{ model.name }}" style="text-decoration: none;display: grid;">
+                            {% if request.user.id == model.user_id.id %}
+                            <i class="fas fa-edit" style="color: #00bcd4;padding: 5px 10px;font-size: 20px;"></i>
+                            {% endif %}
+                        </a>
+                    </div>
+                    <br>
+                    <h6 class="card-subtitle mb-2 text-muted theme-content">THEME</h6>
+                    <div wrap="wrap" direction="row" class="theme-desc">
+                        <div class=" theme-conts">
+                            <p class=" theme-content">{{ model.theme }}</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card-text">
+                        <div direction="row" wrap="wrap" style="align-self:flex-start" class="   kzkZgo">
+                            <div class=" theme-box">
+                                <p class=" theme-texts">{{ model.online_or_offline }}</p>
+                            </div>
+                            <div class=" theme-box">
+                                <p class=" theme-texts">Open</p>
+                            </div>
+                            <div class=" theme-box">
+                                <p class=" theme-texts">Starts {{model.happening_date}}</p>
+                            </div>
+                    </div>
+                </div>
+                    
+            </div>
+            <div class="half-card-body" style="width: 40%;" style="overflow: hidden;">
+            <img src="../../core/media/{{ model.main_image }}" alt="" style="object-fit: cover;width: 100%;height: 100%;border-radius: 12px;">
+            </div>
+                </div>
+<hr>
+   <div class="row">
+    <div class="col-md-12">
+        <div class="boxxx">
+            <!-- add heading called About  -->
+            <div class="   title_text_2" style="padding: 10px;">
+                <h1 class=" title_text_3" style="text-transform: uppercase; ">ABOUT</h1>
+            </div>
+            <div class="   title_text_2" style="padding: 10px;">
+                <p class=" title_text_1" style="font-size: 18px;text-align: justify;" >{{ model.message }}</p>
+            </div>
+            
+                <!-- add the email phone number and other given information -->
+                <div class="col-md-12 " style=" display: flex;justify-content: center;flex-wrap: wrap; flex-direction: row;">
+                    <a href="mailto:{{ model.email }}">
+                    <div class="  title_text_2" style="padding: 10px;">
+                        <!-- add email icon -->
+                        <div class="boxx" style="background-color: #E0A56B;padding: 10px 17px; border-radius: 8px;color: white;">
+                        <i class="fa fa-envelope-o" aria-hidden="true" style=" font-size: 20px;font-weight: 600;margin-top: 5px ;"></i>
+                        </div>
+                      
+                    </div>
+                </a>
+                <a href="phoneto:{{ model.phone }}" target="_blank">
+                    <div class="   title_text_2" style="padding: 10px;">
+                        <!-- add phone icon -->
+                        <div class="boxx" style="background-color: #eb6648;padding: 10px 17px; border-radius: 8px;color: white;">
+                        <i class="fa fa-phone" aria-hidden="true" style=" font-size: 20px;font-weight: 600;margin-top: 5px ;"></i>
+                        </div>
+                        
+                    </div>
+                </a>
+                <a href="{{ model.facebook}}" target="_blank">
+                    <div class="   title_text_2" style="padding: 10px;">
+                        <div class="boxx" style="background-color: #3579ea;padding: 10px 17px; border-radius: 8px;color: white;">
+                        <i class="fa fa-facebook" aria-hidden="true" style=" font-size: 20px;font-weight: 600;margin-top: 5px ;"></i>
+                        </div>
+                        
+                    </div>
+                </a>
+                <a href="{{ model.website}}" target="_blank">
+                    <!-- website -->
+                    <div class="   title_text_2" style="padding: 10px;">
+                        <div class="boxx" style="background-color: #989898;padding: 10px 17px; border-radius: 8px;color: white;">
+                        <i class="fa fa-globe" aria-hidden="true" style=" font-size: 20px;font-weight: 600;margin-top: 5px ;"></i>
+                        </div>
+                        
+                    </div>
+                </a>
+                <a href="{{ model.discord}}" target="_blank">
+                
+                    <!-- discord -->
+                    <div class="   title_text_2" style="padding: 10px;">
+                        <div class="boxx" style="background-color: #7289da;padding: 10px 17px; border-radius: 8px;color: white;">
+                        <i class="fab fa-discord" aria-hidden="true" style=" font-size: 20px;font-weight: 600;margin-top: 5px ;"></i>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ model.twitter }}" target="_blank">
+                   <!-- twitter  -->
+                     <div class="   title_text_2" style="padding: 10px;">
+                            <div class="boxx" style="background-color: #1da1f2;padding: 10px 17px; border-radius: 8px;color: white;">
+                            <i class="fa fa-twitter" aria-hidden="true" style=" font-size: 20px;font-weight: 600;margin-top: 5px ;"></i>
+                            </div>
+                      </div>
+                </a>
+                <a href="">
+                    <!-- youtube -->
+                    <div class="   title_text_2" style="padding: 10px;">
+                        <div class="boxx" style="background-color: #ff0000;padding: 10px 17px; border-radius: 8px;color: white;">
+                        <i class="fa fa-youtube" aria-hidden="true" style=" font-size: 20px;font-weight: 600;margin-top: 5px ;"></i>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ model.discord }}" target="_blank">
+                      <!-- instagram -->
+                      <div class="   title_text_2" style="padding: 10px;">
+                            <div class="boxx" style="background-color: #e4405f;padding: 10px 17px; border-radius: 8px;color: white;">
+                            <i class="fa fa-instagram" aria-hidden="true" style=" font-size: 20px;font-weight: 600;margin-top: 5px ;"></i>
+                            </div>
+                      </div>
+                </a>
+                </div>
+                
+                <div class="   title_text_2" style="padding: 15px;">
+                    <a href="/eca_apply/{{model.name}}" class="btn btn-primary" style="width: 100%;color: white !important;padding: 10px;">Apply Now</a>
+                </div>
+            </div>
+            <!-- apply now button -->
+         
+        </div>
+
+   </div>
+            
+           
+        </div>
+        <!-- cards -->
+        
+    </div>
+
+</body>
+
+</html>
